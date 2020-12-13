@@ -1,2 +1,2 @@
-f = open("../session.secret", "r")
+f = open("../sess.secret", "r")
 secret_cookie = f.read()
