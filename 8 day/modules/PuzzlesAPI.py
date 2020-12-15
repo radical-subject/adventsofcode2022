@@ -1,6 +1,5 @@
 import requests, json
-from requests_oauthlib import OAuth1
-url = 'https://adventofcode.com/2020/day/7/input'
+url = 'https://adventofcode.com/2020/day/8/input'
 import sys
 sys.path.append("..") # Adds higher directory to python modules path.
 from secret_cookie_extractor import *
@@ -48,11 +47,7 @@ class PuzzleInput:
                         timeout=self.timeout,
                         cookies=self.cookies
                         )
-      soup = r.text[:-1].replace("bags", "bag").split("\n")
-      soup[-1]
-      return soup
+      soup = r.text.split("\n")
+      return soup[:-1]
 
 
-# input_conn = PuzzleInput(url)
-# soup = input_conn.get_puzzle_input()
-# len(soup)
