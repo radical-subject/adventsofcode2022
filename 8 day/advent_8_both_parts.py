@@ -99,7 +99,7 @@ class CodeRunner:
 if __name__ == "__main__":
   
   initial_conditions = dict(accumulator = 0, corrected_row_index = 0, list_of_visited_rows = [], last_position = 0)
-  params = {'puzzle_part':1}
+  params = {'puzzle_part':2}
 
   obj = CodeRunner(soup, **initial_conditions)
   # soup --> obj.args[0]
