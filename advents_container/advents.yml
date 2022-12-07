@@ -19,6 +19,7 @@ dependencies:
     - matplotlib
     - networkx
     - numpy
+    - pandas
     - oauthlib
     - pillow
     - pyparsing

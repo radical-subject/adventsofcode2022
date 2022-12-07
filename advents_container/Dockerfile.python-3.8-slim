@@ -1,0 +1,22 @@
+FROM python:3.8-slim
+
+ENV PATH="/root/miniconda3/bin:${PATH}"
+ARG PATH="/root/miniconda3/bin:${PATH}"
+
+# updating ubuntu packages
+RUN apt-get -y update && apt-get -y upgrade
+RUN mkdir -p /usr/share/man/man1/
+
+# Jupyter installation
+RUN pip3 install jupyter
+
+RUN apt-get install wget -y
+RUN wget \
+    https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+    && mkdir /root/.conda \
+    && bash Miniconda3-latest-Linux-x86_64.sh -b \
+    && rm -f Miniconda3-latest-Linux-x86_64.sh 
+RUN conda --version
+COPY advents.yml ./
+RUN conda env create -f advents.yml || conda env update -f advents.yml
+WORKDIR /home
