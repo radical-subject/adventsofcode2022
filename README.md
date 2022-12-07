@@ -24,3 +24,7 @@ i used login by github, and stored cookies for session, to use them in html_requ
                 }
 
 the class to login is slightly modified from day to day, so it is stored in each_day_folder/modules/PazzlesAPI.py but the general idea is the same - you just need your own session id in cookies.
+
+
+docker-compose up --build 
+then go to jupyter-notebook and look for notebook.
