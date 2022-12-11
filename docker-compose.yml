@@ -10,9 +10,11 @@ services:
       dockerfile: Dockerfile.python-3.8-slim
     restart: always
     volumes:         # docker run -v
-      - ".\\advents_container:/home" # интерактивно менять скрипты не перезапуская контейнер
+    # интерактивно менять скрипты не перезапуская контейнер
+      # - ".\\advents_container:/home" # для винды
+      - "./advents_container:/home" # для линукса
     ports: 
-      - 8888:8888 # binds docker internal service to localhost:8888
+      - 8889:8888 # binds docker internal service on container:8888 to external parent machine localhost:8889
     # /wait-for-it.sh - useful script checks availability of service on some port, and then launches next command
     command: conda run --no-capture-output -n advents jupyter-notebook --ip=0.0.0.0 --allow-root # running conda command in specific enviroment
     # bash -c 'cd /home' # use bash -c "command" because cd works only in shell
